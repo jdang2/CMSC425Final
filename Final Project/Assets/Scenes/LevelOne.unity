@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest
       objectReference: {fileID: 0}
+    - target: {fileID: 409581050389015181, guid: b9df973aabf64894f936379abbdc1600, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 409581050389015178, guid: b9df973aabf64894f936379abbdc1600, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9df973aabf64894f936379abbdc1600, type: 3}
