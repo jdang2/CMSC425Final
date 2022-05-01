@@ -1,4 +1,4 @@
-Shader "Unlit/Window"
+Shader "Stencil/Window"
 {
     Properties
     {

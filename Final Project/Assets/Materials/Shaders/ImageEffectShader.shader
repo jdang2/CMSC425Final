@@ -1,4 +1,4 @@
-Shader "Hidden/ImageEffectShader"
+Shader "Stencil/ImageEffectShader"
 {
     Properties
     {

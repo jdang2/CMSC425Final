@@ -1,4 +1,4 @@
-Shader "Custom/TestShader"
+Shader "Stencil/TestShader"
 {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}

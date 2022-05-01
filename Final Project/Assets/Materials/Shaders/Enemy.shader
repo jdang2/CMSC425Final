@@ -1,4 +1,4 @@
-Shader "Unlit/Enemy"
+Shader "Stencil/Enemy"
 {
     Properties
     {

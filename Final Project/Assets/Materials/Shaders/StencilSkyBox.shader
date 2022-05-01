@@ -1,4 +1,4 @@
-Shader "Hidden/StencilSkyBox"
+Shader "Stencil/StencilSkyBox"
 {
     Properties
     {
