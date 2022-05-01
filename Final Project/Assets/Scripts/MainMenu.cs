@@ -5,7 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public Animator transition;
+    public float transitionTime = 2f;
+
     public void PlayGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator Load(int index){
+        transition.SetTrigger("start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(index);
     }
 }
