@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject enemy;
     void Start()
     {
         
@@ -21,7 +23,11 @@ public class ItemPickup : MonoBehaviour
         Debug.Log("triggered");
         if(target.tag == "player")
         {
+            enemy.SetActive(true);
             Destroy(this.gameObject);
         }
     }
 }
+
+
+

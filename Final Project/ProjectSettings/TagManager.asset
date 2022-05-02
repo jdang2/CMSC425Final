@@ -6,6 +6,7 @@ TagManager:
   tags:
   - player
   - item
+  - Portal
   layers:
   - Default
   - TransparentFX
