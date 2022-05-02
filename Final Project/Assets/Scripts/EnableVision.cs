@@ -7,6 +7,10 @@ public class EnableVision : MonoBehaviour
     public GameObject window;
     private float timeSinceOpened = 0.2f;
     private float timeToWaitForKeyInput = 0.1f;
+
+    public AudioSource activation;
+
+    public AudioSource off;
     [SerializeField] bool goggles = true;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,7 @@ public class EnableVision : MonoBehaviour
         if(target.tag == "item")
         {
             goggles = true;
+            activation.Play();
             window.SetActive(true);
         }
     }
@@ -37,6 +42,14 @@ public class EnableVision : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Q) && (timeSinceOpened >= timeToWaitForKeyInput) && goggles){
                 timeSinceOpened = 0f;
                 window.SetActive(!window.activeSelf);
+                if(window.activeSelf){
+                    off.Stop();
+                    activation.Play();
+                     
+                }else{
+                    activation.Stop();
+                    off.Play();
+                }
             }
             
         }
