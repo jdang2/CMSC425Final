@@ -9,25 +9,16 @@ public class ItemPickup : MonoBehaviour
     public GameObject enemy;
     public Animator trigger;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider target)
     {
-        Debug.Log("triggered");
+        Debug.Log(trigger.name);
         if(target.tag == "player")
         {
             enemy.SetActive(true);
             Destroy(this.gameObject);
             trigger.SetTrigger("start");
+            
         }
     }
 }

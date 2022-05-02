@@ -7,6 +7,10 @@ public class NextLevel : MonoBehaviour
 {
 
     public Animator trigger;
+
+    public Animator bartrigger;
+
+    public Animator cdTrig;
     public float transitionTime = 2f;
     void OnTriggerEnter(Collider target)
     {
@@ -18,13 +22,10 @@ public class NextLevel : MonoBehaviour
 
 
     IEnumerator Load(int index){
-        
-        if(index == 2){
-            trigger.SetTrigger("start");
-        }else{
-            trigger.SetTrigger("change");
-        }
-         
+                 
+        trigger.SetTrigger("start");
+        bartrigger.SetTrigger("dead");
+        cdTrig.SetTrigger("end");
 
         yield return new WaitForSeconds(transitionTime);
 

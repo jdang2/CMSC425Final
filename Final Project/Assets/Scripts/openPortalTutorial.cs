@@ -7,7 +7,7 @@ public class openPortalTutorial : MonoBehaviour
     // Start is called before the first frame update
 
     public AudioSource open;
-    public Enemy enemy;
+    public EnemyHP enemy;
 
     public Animator trigger;
 
@@ -17,13 +17,13 @@ public class openPortalTutorial : MonoBehaviour
     private bool one = true;
     void Start()
     {
-        enemy = enemy.GetComponent<Enemy>();
+        enemy = enemy.GetComponent<EnemyHP>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(enemy.health <= 0 && one){
+        if(enemy.currentHealth.value <= 0 && one){
             PlaySound();
         }
     }

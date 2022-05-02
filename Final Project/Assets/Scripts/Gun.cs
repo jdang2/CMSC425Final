@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire && ammo.value >= 1){
+        if(Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire && ammo.value >= 1 && FindObjectOfType<GameManager>().gameHasEnded == false){
             nextTimeToFire = Time.time + 1f/fireRate;
             Shoot();
         }
@@ -47,7 +47,7 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)){
             Debug.Log(hit.transform.name);
 
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            EnemyHP enemy = hit.transform.GetComponent<EnemyHP>();
             if(enemy != null){
                 enemy.TakeDamage(damage);
             }

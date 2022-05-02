@@ -9,6 +9,7 @@ public class EnableVision : MonoBehaviour
     private float timeSinceOpened = 0.2f;
     private float timeToWaitForKeyInput = 0.1f;
 
+    public bool visionOn = false;
     public AudioSource activation;
 
     public AudioSource off;
@@ -38,6 +39,7 @@ public class EnableVision : MonoBehaviour
             window.SetActive(!window.activeSelf);
             cooldown = true;
             cdCheck.SetTrigger("start");
+            visionOn = false;
             off.Play();
         }
 
@@ -47,11 +49,12 @@ public class EnableVision : MonoBehaviour
         }
     }
 
+    
     void OnTriggerEnter(Collider target)
     {
-        Debug.Log("triggered");
         if(target.tag == "item")
         {
+            visionOn = true;
             goggles = true;
             activation.Play();
             window.SetActive(true);
@@ -68,12 +71,14 @@ public class EnableVision : MonoBehaviour
                 if(cooldown == false){
                     window.SetActive(!window.activeSelf);
                     if(window.activeSelf){
+                        visionOn = true;
                         off.Stop();
                         activation.Play();
                         
                     }else{
                         activation.Stop();
                         off.Play();
+                        visionOn = false;
                     }
                 }
             }

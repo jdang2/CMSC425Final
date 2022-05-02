@@ -18,7 +18,7 @@ public class WalkingSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(control.isGrounded && walk.isPlaying == false){
+        if(control.isGrounded && walk.isPlaying == false && FindObjectOfType<GameManager>().gameHasEnded == false){
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)){
               
                 walk.Play();
