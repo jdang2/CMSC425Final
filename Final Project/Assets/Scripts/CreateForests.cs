@@ -30,11 +30,11 @@ public class CreateForests : MonoBehaviour
                         newElement.transform.SetParent(transform);
                         newElement.transform.position = position + offset;
                         newElement.transform.eulerAngles = rotation;
-                        if(newElement.tag != ("Portal")){
-                            newElement.transform.localScale = scale;
-                        }else{
-                            elements[i] = elements[1];
-                        }
+                       
+                        newElement.transform.localScale = scale;
+                        
+                        
+                        
                         break;
                     }
                 }

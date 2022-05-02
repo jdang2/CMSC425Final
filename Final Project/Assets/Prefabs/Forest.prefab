@@ -40,50 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 409581050389015181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc042ac59db571c43bd6bed8694c8da8, type: 3}
+  m_Script: {fileID: 11500000, guid: ace4b89a3ba1a3e40addeb4210f80a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forestSize: 49
+  forestSize: 25
   elementSpacing: 3
-  elements:
-  - name: Trees
-    density: 6
-    prefabs:
-    - {fileID: 1267224089213756664, guid: 69a3787c246225244ae220331aacf622, type: 3}
-    - {fileID: 208177623708164184, guid: d86f7ca50d0ae4144bdba6826b98d7db, type: 3}
-    - {fileID: 5436190738574098797, guid: 61dc2144bd51f954d905288f68bd8fab, type: 3}
-    - {fileID: 4180704383188513266, guid: 56c13260280edcb478a4ae0db5ac6b09, type: 3}
-    - {fileID: 4043671908969309603, guid: 176cdbb0037626c4ba0d94e045613e2b, type: 3}
-    - {fileID: 5815765738122455156, guid: 6dac90d2f53af8249b1302f13913197f, type: 3}
-    - {fileID: 1614639474950744485, guid: e0b26a63e3e19024fbb1fa4320929fe4, type: 3}
-    - {fileID: 8254266972674313729, guid: 997af048dfd8f3d4790b49755149ac20, type: 3}
-    - {fileID: 2302365169784364324, guid: be47c6bacd55b3e428b26c5c6d7fcc91, type: 3}
-    - {fileID: 8979107723759427570, guid: eef3604ecca7a2f4fa48b6053eae7587, type: 3}
-    - {fileID: 6546983796523839268, guid: 34c8ad3a47c1eb04ebd03b836b7dc209, type: 3}
-    - {fileID: 519561577666273792, guid: cf0f8386c49846845a49957c9d96560b, type: 3}
-    - {fileID: 1014187582078652923, guid: 5b868c7e4d662a44dbd9fa510ada995e, type: 3}
-    - {fileID: 4163088365037450696, guid: 76e84e0ffa5863b45839507801cb9b1e, type: 3}
-    - {fileID: 6289986103771372978, guid: 3f4d2eaca3b09f54ab4358be8f54ea19, type: 3}
-    - {fileID: 3156891252135566720, guid: 5dff10dc76e5f584fb24fd893d0579ce, type: 3}
-  - name: Plants
-    density: 8
-    prefabs:
-    - {fileID: 2639170116043834303, guid: a40ebf7543881de4bb0037ed69938003, type: 3}
-    - {fileID: 6169402466897900821, guid: e6a43ba1ec941c9419760a066bc7fdfb, type: 3}
-    - {fileID: 4922393023398952074, guid: a9dac6bfde0dc0e4e8e62285c06cee73, type: 3}
-    - {fileID: 8115440680676431486, guid: d40092380bc7bca47af4fb14246f960e, type: 3}
-    - {fileID: 6418936785359311555, guid: 89c091f7f0b88b14e959df356fb4a60c, type: 3}
-    - {fileID: 9044258734735477710, guid: 970ea9ff68ac1564abe1fd1bfda72817, type: 3}
-    - {fileID: 1240802964105703049, guid: 9594e4883ccac274285cf50c8843dffc, type: 3}
-    - {fileID: 7381351714985144696, guid: f8d07c4ccaa1d8d4882a6ce2b0e80e64, type: 3}
-    - {fileID: 2926394491743017704, guid: d52620b0debd72041a1a2bd44158bf33, type: 3}
-    - {fileID: 1072351276423886925, guid: c6ee1c0f62965044094470fab5e473fc, type: 3}
-  - name: Rocks
-    density: 3
-    prefabs:
-    - {fileID: 7620709545217683010, guid: 7c1d4f3b1360dc148828bbdd997c58f2, type: 3}
-    - {fileID: 685090869081039426, guid: 92f5f9a6f1ef07246abb58076697125f, type: 3}
-    - {fileID: 8191173659700389854, guid: 0d2d9f44f157a8a4f96a9be4eebd0b46, type: 3}
-    - {fileID: 8206887305506781531, guid: fd8982c15ef8b124ead3c032368bf683, type: 3}
-    - {fileID: 5604778834199260903, guid: a2ccfdce9caf67f418e906cbaf0deab2, type: 3}
-    - {fileID: 108085836232306533, guid: 280d0956f0a6bf64ab1712145c2a5124, type: 3}
+  elements: []
