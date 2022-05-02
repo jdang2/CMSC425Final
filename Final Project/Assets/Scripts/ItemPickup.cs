@@ -7,6 +7,8 @@ public class ItemPickup : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject enemy;
+    public Animator trigger;
+
     void Start()
     {
         
@@ -25,6 +27,7 @@ public class ItemPickup : MonoBehaviour
         {
             enemy.SetActive(true);
             Destroy(this.gameObject);
+            trigger.SetTrigger("start");
         }
     }
 }

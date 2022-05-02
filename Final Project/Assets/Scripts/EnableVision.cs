@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnableVision : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class EnableVision : MonoBehaviour
     public AudioSource activation;
 
     public AudioSource off;
+
+    public Slider visionSlider;
+
+    public Animator cdCheck;
+
+    private bool cooldown = false;
     [SerializeField] bool goggles = true;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +28,23 @@ public class EnableVision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(window.activeSelf){
+            visionSlider.value = visionSlider.value - Time.deltaTime;
+        }else{
+            visionSlider.value = visionSlider.value + Time.deltaTime;
+        }
+
+        if(visionSlider.value == 0){
+            window.SetActive(!window.activeSelf);
+            cooldown = true;
+            cdCheck.SetTrigger("start");
+            off.Play();
+        }
+
+        if(visionSlider.value == 15 && cooldown == true){
+            cooldown = false;
+            cdCheck.SetTrigger("end");
+        }
     }
 
     void OnTriggerEnter(Collider target)
@@ -41,14 +64,17 @@ public class EnableVision : MonoBehaviour
             timeSinceOpened = timeSinceOpened + Time.deltaTime;
             if(Input.GetKeyDown(KeyCode.Q) && (timeSinceOpened >= timeToWaitForKeyInput) && goggles){
                 timeSinceOpened = 0f;
-                window.SetActive(!window.activeSelf);
-                if(window.activeSelf){
-                    off.Stop();
-                    activation.Play();
-                     
-                }else{
-                    activation.Stop();
-                    off.Play();
+
+                if(cooldown == false){
+                    window.SetActive(!window.activeSelf);
+                    if(window.activeSelf){
+                        off.Stop();
+                        activation.Play();
+                        
+                    }else{
+                        activation.Stop();
+                        off.Play();
+                    }
                 }
             }
             

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Gun : MonoBehaviour
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
     private AudioSource shot;
 
+    public Slider ammo;
  
     void Start(){
     
@@ -24,14 +26,19 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire){
+        if(Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire && ammo.value >= 1){
             nextTimeToFire = Time.time + 1f/fireRate;
             Shoot();
+        }
+
+        if(ammo.value != 3){
+            ammo.value = ammo.value + Time.deltaTime/3;
         }
     }
 
     void Shoot(){
         
+        ammo.value = ammo.value - 1;
         muzzleFlash.Play();
         shot.Play();
         RaycastHit hit; 

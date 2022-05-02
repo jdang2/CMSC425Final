@@ -12,6 +12,8 @@ public class openPortalTutorial : MonoBehaviour
     public Animator trigger;
 
     public Animator text;
+
+    public Animator stencil;
     private bool one = true;
     void Start()
     {
@@ -30,6 +32,7 @@ public class openPortalTutorial : MonoBehaviour
     void PlaySound(){
         open.Play();
         trigger.SetTrigger("start");
+        stencil.SetTrigger("start");
         one = false;
         StartCoroutine(Delay());
     }
