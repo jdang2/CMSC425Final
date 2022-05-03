@@ -18,11 +18,14 @@ public class EnableVision : MonoBehaviour
 
     public Animator cdCheck;
 
+    private float maxTime;
+
     private bool cooldown = false;
     [SerializeField] bool goggles = true;
     // Start is called before the first frame update
     void Start()
     {
+        maxTime = visionSlider.value;
         StartCoroutine(ToggleVision());
     }   
 
@@ -43,7 +46,7 @@ public class EnableVision : MonoBehaviour
             off.Play();
         }
 
-        if(visionSlider.value == 15 && cooldown == true){
+        if(visionSlider.value == maxTime && cooldown == true){
             cooldown = false;
             cdCheck.SetTrigger("end");
         }
