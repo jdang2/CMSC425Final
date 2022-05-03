@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7759600765419047297}
   - component: {fileID: -2384275208716714543}
+  - component: {fileID: 2005528372812505849}
   m_Layer: 0
   m_Name: stone_largeA
   m_TagString: Untagged
@@ -46,6 +47,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4950155
   m_Center: {x: 0.15, y: -0.0606696, z: 0.04}
+--- !u!208 &2005528372812505849
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108085836232306533}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.365, y: 0.155, z: 0.48}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.12, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &5291293546749612172
 PrefabInstance:
   m_ObjectHideFlags: 0

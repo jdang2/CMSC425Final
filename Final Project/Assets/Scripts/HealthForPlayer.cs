@@ -14,6 +14,8 @@ public class HealthForPlayer : MonoBehaviour
 
     public AudioSource death;
 
+    public AudioSource hit;
+
     public Animator trigger;
 
     public Animator secondtrigger;
@@ -52,7 +54,7 @@ public class HealthForPlayer : MonoBehaviour
     void OnCollisionEnter(Collision target)
     {
         if(target.gameObject.tag == "Enemy"){
-            
+            hit.Play();
             TakeDamage(10);
         }
     }
