@@ -23,69 +23,131 @@ public class EnemyHP : MonoBehaviour
     public bool playerInSightRange;
 
     public bool isFlying;
-  
 
-    private void Awake(){
+    public float timeBetweenAttack;
+    bool attacked;
+
+    public float attackRange;
+
+    public bool playerInAttackRange;
+
+    public GameObject projectile;
+
+
+    private void Awake()
+    {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update(){
+    private void Update()
+    {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
 
-        if(!playerInSightRange){
-            Patrol();
+        if (isFlying)
+        {
+            if(!playerInSightRange && !playerInAttackRange){
+                Patrol();
+            }
+
+            if(playerInSightRange && !playerInAttackRange){
+                Chase();
+            }
+
+            if(playerInSightRange && playerInAttackRange){
+                Attack();
+            }
         }
-        if(playerInSightRange){
-            Chase();
+        else
+        {
+            if (!playerInSightRange)
+            {
+                Patrol();
+            }
+            if (playerInSightRange)
+            {
+                Chase();
+            }
         }
 
     }
 
-    private void Patrol(){
-        if(!walkPointSet){
+    private void Patrol()
+    {
+        if (!walkPointSet)
+        {
             SearchWalkPoint();
         }
 
-        if(walkPointSet){
+        if (walkPointSet)
+        {
             agent.SetDestination(walkPoint);
         }
-        
+
         Vector3 distance = transform.position - walkPoint;
 
-        if(distance.magnitude < 1f){
+        if (distance.magnitude < 1f)
+        {
             walkPointSet = false;
         }
     }
 
-    private void SearchWalkPoint(){
+    private void SearchWalkPoint()
+    {
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
-        
+
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        
-        
-        if(Physics.Raycast(walkPoint, -transform.up, 2f, groundMask)){
+
+
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
+        {
             walkPointSet = true;
         }
     }
-    private void Chase(){
+    private void Chase()
+    {
         agent.SetDestination(player.position);
     }
 
-    public void TakeDamage(float amount){
+    public void TakeDamage(float amount)
+    {
         currentHealth.value -= amount;
-        if(currentHealth.value <= 0f){
+        if (currentHealth.value <= 0f)
+        {
             Die();
         }
     }
 
-    void Die(){
+    void Die()
+    {
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected(){
+    private void OnDrawGizmosSelected()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
+    private void Attack(){
+        agent.SetDestination(transform.position);
+        transform.LookAt(player);
+
+        if(!attacked){
+            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 25f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 15f, ForceMode.Impulse);
+
+            attacked = true;
+            Invoke(nameof(resetAttack), timeBetweenAttack);
+        }
+    }
+
+    private void resetAttack(){
+        attacked = false;
+    }   
 }
