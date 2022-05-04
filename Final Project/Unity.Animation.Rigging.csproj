@@ -99,8 +99,8 @@
      <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationJobs\WeightedTransformArrayBinder.cs" />
      <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationRig\Constraints\MultiRotationConstraint.cs" />
      <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationJobs\RigSyncSceneToStreamJob.cs" />
-     <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationRig\Constraints\TwistCorrection.cs" />
      <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationJobs\MultiAimConstraintJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationRig\Constraints\TwistCorrection.cs" />
      <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationJobs\OverrideTransformJob.cs" />
      <Compile Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\AnimationRig\IRigConstraint.cs" />
      <None Include="Library\PackageCache\com.unity.animation.rigging@1.0.3\Runtime\Unity.Animation.Rigging.asmdef" />

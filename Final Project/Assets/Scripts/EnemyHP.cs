@@ -31,6 +31,8 @@ public class EnemyHP : MonoBehaviour
 
     public bool playerInAttackRange;
 
+    public AudioSource fireProjectile = null;
+
     public GameObject projectile;
 
 
@@ -144,6 +146,9 @@ public class EnemyHP : MonoBehaviour
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 25f, ForceMode.Impulse);
             rb.AddForce(transform.up * 15f, ForceMode.Impulse);
+            if(fireProjectile != null){
+                fireProjectile.Play();
+            }
 
             attacked = true;
             Invoke(nameof(resetAttack), timeBetweenAttack);

@@ -7,7 +7,9 @@ public class Bullet : MonoBehaviour
 
     public GameObject player;
     void Start(){
+        player = GameObject.Find("Player");
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), player.GetComponent<Collider>());
+        
     }
     
     // Start is called before the first frame update

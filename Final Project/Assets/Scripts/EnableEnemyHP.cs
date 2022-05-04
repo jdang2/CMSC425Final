@@ -11,6 +11,10 @@ public class EnableEnemyHP : MonoBehaviour
 
     public Transform cam;
 
+    void Start(){
+        cam = GameObject.Find("Main Camera").transform;
+        status = GameObject.Find("Player").GetComponent(typeof(EnableVision)) as EnableVision;
+    }
     // Update is called once per frame
     void Update()
     {

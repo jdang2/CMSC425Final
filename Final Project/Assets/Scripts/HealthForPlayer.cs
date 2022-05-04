@@ -10,24 +10,24 @@ public class HealthForPlayer : MonoBehaviour
     public static int currentHealth = 100;
 
     private int saveHP;
-    public PlayerHealthBar bar;
+    public PlayerHealthBar healthBar;
 
-    public AudioSource death;
+    public AudioSource deathSound;
 
-    public AudioSource hit;
+    public AudioSource hitSound;
 
-    public Animator trigger;
+    public Animator wholeScreen;
 
-    public Animator secondtrigger;
+    public Animator visionBar;
 
-    public Animator cdTrigger;
+    public Animator cooldownMSG;
 
     // Start is called before the first frame update
     void Start()
     {
         saveHP = currentHealth;
         Debug.Log(currentHealth);
-        bar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
       
         
     }
@@ -40,13 +40,13 @@ public class HealthForPlayer : MonoBehaviour
 
     void TakeDamage(int damage){
         currentHealth -= damage;
-        bar.SetHealth(currentHealth);
-        if(bar.slider.value <= 0){
+        healthBar.SetHealth(currentHealth);
+        if(healthBar.slider.value <= 0){
             currentHealth = saveHP;
-            trigger.SetTrigger("start");
-            secondtrigger.SetTrigger("dead");
-            cdTrigger.SetTrigger("end");
-            death.Play();
+            wholeScreen.SetTrigger("start");
+            visionBar.SetTrigger("dead");
+            cooldownMSG.SetTrigger("end");
+            deathSound.Play();
             FindObjectOfType<GameManager>().EndGame();
         }
     }
@@ -54,7 +54,7 @@ public class HealthForPlayer : MonoBehaviour
     void OnCollisionEnter(Collision target)
     {
         if(target.gameObject.tag == "Enemy"){
-            hit.Play();
+            hitSound.Play();
             TakeDamage(10);
         }
     }

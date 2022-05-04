@@ -8,6 +8,8 @@ public class EnableVision : MonoBehaviour
     public GameObject window;
     private float timeSinceOpened = 0.2f;
     private float timeToWaitForKeyInput = 0.1f;
+    private bool cooldownMSG = false;
+
 
     public bool visionOn = false;
     public AudioSource activation;
@@ -15,6 +17,9 @@ public class EnableVision : MonoBehaviour
     public AudioSource off;
 
     public Slider visionSlider;
+    public float disablePenalty = 0f;
+    public float drainSpeed = 2f; 
+    public float maxCharge = 7.5f;
 
     public Animator cdCheck;
 
@@ -25,6 +30,8 @@ public class EnableVision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        visionSlider.maxValue = maxCharge;
+        visionSlider.value = maxCharge;
         maxTime = visionSlider.value;
         StartCoroutine(ToggleVision());
     }   
@@ -33,21 +40,18 @@ public class EnableVision : MonoBehaviour
     void Update()
     {
         if(window.activeSelf){
-            visionSlider.value = visionSlider.value - Time.deltaTime;
+            visionSlider.value -= drainSpeed * Time.deltaTime;
         }else{
-            visionSlider.value = visionSlider.value + Time.deltaTime;
+            visionSlider.value += Time.deltaTime;
         }
 
         if(visionSlider.value == 0){
-            window.SetActive(!window.activeSelf);
-            cooldown = true;
-            cdCheck.SetTrigger("start");
-            visionOn = false;
-            off.Play();
+            triggerCooldown();
         }
 
         if(visionSlider.value == maxTime && cooldown == true){
             cooldown = false;
+            cooldownMSG = false;
             cdCheck.SetTrigger("end");
         }
     }
@@ -59,9 +63,21 @@ public class EnableVision : MonoBehaviour
         {
             visionOn = true;
             goggles = true;
+
             activation.Play();
             window.SetActive(true);
         }
+    }
+
+    void triggerCooldown(){
+        window.SetActive(!window.activeSelf);
+        cooldown = true;
+        if(!cooldownMSG){
+            cdCheck.SetTrigger("start");
+            cooldownMSG = true;
+        }
+        visionOn = false;
+        off.Play();
     }
 
     IEnumerator ToggleVision(){
@@ -80,6 +96,11 @@ public class EnableVision : MonoBehaviour
                         
                     }else{
                         activation.Stop();
+                        float val = visionSlider.value - disablePenalty;
+                        if(val <= 0){
+                            triggerCooldown();
+                        }
+                        visionSlider.value = val;
                         off.Play();
                         visionOn = false;
                     }
