@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
+    public GameObject player;
+    void Start(){
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), player.GetComponent<Collider>());
+    }
     
     // Start is called before the first frame update
     void OnCollisionEnter(Collision target){
         if(target.gameObject.tag == "player"){
             Destroy(gameObject);
         }else{
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2f);
         }
     }
 }

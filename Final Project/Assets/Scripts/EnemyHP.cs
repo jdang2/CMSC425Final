@@ -138,6 +138,9 @@ public class EnemyHP : MonoBehaviour
         transform.LookAt(player);
 
         if(!attacked){
+            Vector3 temp = transform.position;
+            temp.y = temp.y + 0.5f;
+            transform.position = temp;
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 25f, ForceMode.Impulse);
             rb.AddForce(transform.up * 15f, ForceMode.Impulse);
