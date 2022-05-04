@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2172739971785699835}
   - component: {fileID: 4116687904721036156}
   - component: {fileID: 3670788203114440224}
+  - component: {fileID: 329972964742306138}
   m_Layer: 0
   m_Name: stoneWallCurve
   m_TagString: Untagged
@@ -123,3 +124,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45772988, y: 0.65191394, z: 0.4543634}
   m_Center: {x: 0.27113518, y: 0.32595697, z: -0.2749739}
+--- !u!208 &329972964742306138
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130222291397510895}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.326, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.326, z: 0}
+  m_TimeToStationary: 0.5

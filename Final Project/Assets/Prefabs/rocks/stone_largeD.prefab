@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5178480109321096335}
-  - component: {fileID: -578090378932462382}
   - component: {fileID: 3873229018664490816}
+  - component: {fileID: -2741894841530686568}
   m_Layer: 0
   m_Name: stone_largeD
   m_TagString: Untagged
@@ -34,19 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &-578090378932462382
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5604778834199260903}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4950155
-  m_Center: {x: 0, y: 0.21, z: 0.04}
 --- !u!208 &3873229018664490816
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -63,6 +50,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.06, y: 0.36, z: -0.03}
   m_TimeToStationary: 0.5
+--- !u!65 &-2741894841530686568
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604778834199260903}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.82, y: 0.47, z: 0.82}
+  m_Center: {x: 0.03, y: 0.33, z: -0.03}
 --- !u!1001 &1908275421246127225
 PrefabInstance:
   m_ObjectHideFlags: 0

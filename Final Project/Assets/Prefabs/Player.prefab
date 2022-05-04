@@ -1090,11 +1090,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5615c0528f304ae429d91ed99ed41a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  range: 100
+  damage: 15
+  range: 75
   muzzleFlash: {fileID: 5551626724746486306}
   fpsCam: {fileID: 5551626724618659199}
-  fireRate: 15
+  fireRate: 3
   ammo: {fileID: 0}
 --- !u!1 &4740670579049389042
 GameObject:
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 1269482368}
   - component: {fileID: 1269482366}
   m_Layer: 7
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,7 +1354,7 @@ CharacterController:
   m_Height: 0.03
   m_Radius: 0.15
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.21, z: 0}
@@ -1473,6 +1473,7 @@ MonoBehaviour:
   visionSlider: {fileID: 0}
   disablePenalty: 1
   drainSpeed: 2
+  maxCharge: 7.5
   cdCheck: {fileID: 0}
   goggles: 1
 --- !u!114 &5551626725128177239
@@ -1488,7 +1489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5551626725128177232}
-  speed: 5
+  speed: 3
   gravity: -19.6
   jumpHeight: 0.5
   groundCheck: {fileID: 5551626724838176740}
@@ -1727,12 +1728,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  bar: {fileID: 0}
-  death: {fileID: 1303495428}
-  hit: {fileID: 1269482366}
-  trigger: {fileID: 0}
-  secondtrigger: {fileID: 0}
-  cdTrigger: {fileID: 0}
+  healthBar: {fileID: 0}
+  deathSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  wholeScreen: {fileID: 0}
+  visionBar: {fileID: 0}
+  cooldownMSG: {fileID: 0}
 --- !u!82 &1303495428
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3847,8 +3848,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.08223567, g: 0.30178106, b: 0.8301887, a: 1}
-      maxColor: {r: 0.17332679, g: 0.8962264, b: 0.79677063, a: 1}
+      minColor: {r: 0.83137256, g: 0.35720575, b: 0.08235294, a: 1}
+      maxColor: {r: 0.6132076, g: 0, b: 0.005252969, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10155,8 +10156,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.08223567, g: 0.30178106, b: 0.8301887, a: 1}
-      maxColor: {r: 0.17332679, g: 0.8962264, b: 0.79677063, a: 1}
+      minColor: {r: 0.83137256, g: 0.3849595, b: 0.08235294, a: 1}
+      maxColor: {r: 0.7169812, g: 0.04643258, b: 0.010145942, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

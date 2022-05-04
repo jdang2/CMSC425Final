@@ -35,10 +35,14 @@ public class EnemyHP : MonoBehaviour
 
     public GameObject projectile;
 
+    private int RNG;
+
+    public GameObject healthPack;
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        healthPack = GameObject.Find("Healthpack");
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -125,6 +129,11 @@ public class EnemyHP : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        RNG = Random.Range(0, 10);
+        if(RNG >= 8){
+            Instantiate(healthPack, transform.position, Quaternion.identity);
+        }
+         
     }
 
     private void OnDrawGizmosSelected()

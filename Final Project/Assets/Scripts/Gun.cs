@@ -49,10 +49,11 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
 
             EnemyHP enemy = hit.transform.GetComponent<EnemyHP>();
-
-        
+            
+            float dmgCalc = (damage/hit.distance);
+            Debug.Log(dmgCalc);
             if(enemy != null){
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(dmgCalc);
             }
 
             
