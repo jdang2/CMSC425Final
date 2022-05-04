@@ -22,6 +22,9 @@ public class EnemyHP : MonoBehaviour
 
     public bool playerInSightRange;
 
+    public bool isFlying;
+  
+
     private void Awake(){
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
@@ -58,9 +61,10 @@ public class EnemyHP : MonoBehaviour
     private void SearchWalkPoint(){
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
-
+        
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
+        
+        
         if(Physics.Raycast(walkPoint, -transform.up, 2f, groundMask)){
             walkPointSet = true;
         }

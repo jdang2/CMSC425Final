@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     private AudioSource shot;
 
     public Slider ammo;
+
  
     void Start(){
     
@@ -48,6 +49,8 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
 
             EnemyHP enemy = hit.transform.GetComponent<EnemyHP>();
+
+        
             if(enemy != null){
                 enemy.TakeDamage(damage);
             }
