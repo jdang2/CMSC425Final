@@ -53,10 +53,10 @@ public class Gun : MonoBehaviour
             EnemyHP enemy = hit.transform.GetComponent<EnemyHP>();
             
             float dmgCalc = (damage/hit.distance);
-            Debug.Log(dmgCalc);
 
             if(enemy != null){
                 enemy.TakeDamage(dmgCalc);
+                enemyHitSound.pitch = 15/dmgCalc;
                 enemyHitSound.Play();
             }
 
