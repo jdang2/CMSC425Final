@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
 
+    public AudioSource enemyHitSound = null;
+
     public ParticleSystem muzzleFlash; 
     public Camera fpsCam;
 
@@ -47,13 +49,15 @@ public class Gun : MonoBehaviour
 
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)){
             Debug.Log(hit.transform.name);
-
+            
             EnemyHP enemy = hit.transform.GetComponent<EnemyHP>();
             
             float dmgCalc = (damage/hit.distance);
             Debug.Log(dmgCalc);
+
             if(enemy != null){
                 enemy.TakeDamage(dmgCalc);
+                enemyHitSound.Play();
             }
 
             

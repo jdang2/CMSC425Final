@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class EnableVision : MonoBehaviour
 {
     public GameObject window;
+    public GameObject nightVision = null;
+    public GameObject spotLight = null;
     private float timeSinceOpened = 0.2f;
     private float timeToWaitForKeyInput = 0.1f;
     private bool cooldownMSG = false;
@@ -30,6 +32,8 @@ public class EnableVision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nightVision = GameObject.Find("Directional Light");
+        spotLight = GameObject.Find("Spot Light");
         visionSlider.maxValue = maxCharge;
         visionSlider.value = maxCharge;
         maxTime = visionSlider.value;
@@ -66,11 +70,13 @@ public class EnableVision : MonoBehaviour
 
             activation.Play();
             window.SetActive(true);
+            toggleNightVision(true);
         }
     }
 
     void triggerCooldown(){
-        window.SetActive(!window.activeSelf);
+        window.SetActive(false);
+        toggleNightVision(false);
         cooldown = true;
         if(!cooldownMSG){
             cdCheck.SetTrigger("start");
@@ -78,6 +84,15 @@ public class EnableVision : MonoBehaviour
         }
         visionOn = false;
         off.Play();
+    }
+
+    void toggleNightVision(bool state){
+        if(nightVision != null){
+            nightVision.SetActive(state);
+        }
+        if(spotLight != null){
+            spotLight.SetActive(!state);
+        }
     }
 
     IEnumerator ToggleVision(){
@@ -89,6 +104,7 @@ public class EnableVision : MonoBehaviour
 
                 if(cooldown == false){
                     window.SetActive(!window.activeSelf);
+                    toggleNightVision(window.activeSelf);
                     if(window.activeSelf){
                         visionOn = true;
                         off.Stop();

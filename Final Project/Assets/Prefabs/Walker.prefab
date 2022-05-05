@@ -405,7 +405,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   HealthPack: {fileID: 0}
   walkPointRange: 2
-  sightRange: 1.81
+  sightRange: 5
   playerInSightRange: 0
   isFlying: 0
   timeBetweenAttack: 0
@@ -414,6 +414,7 @@ MonoBehaviour:
   fireProjectile: {fileID: 0}
   projectile: {fileID: 0}
   healthPack: {fileID: 3444941677498886134, guid: 979adc4c6802439469e7d1a5a00d91b9, type: 3}
+  tracker: {fileID: 0}
 --- !u!195 &7669535540129364281
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -446,7 +447,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a9b16e8f1f2ce214fa06dc20bed70c13, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9a1007cb0a469f846b44d22a968a2fbb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1

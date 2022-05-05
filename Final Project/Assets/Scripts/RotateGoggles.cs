@@ -8,6 +8,6 @@ public class RotateGoggles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up * 15 * Time.deltaTime);
+        transform.Rotate(Vector3.up * 15 * Time.deltaTime, Space.World);
     }
 }

@@ -7,6 +7,7 @@ public class PickedUp : MonoBehaviour
 {
 
     public HealthForPlayer player;
+    public bool isTutorial = false;
 
    
 
@@ -16,7 +17,7 @@ public class PickedUp : MonoBehaviour
     }
     void OnTriggerEnter(Collider target)
     {
-        if (target.tag == "player" && (player.GetCurrentHealth() < 100))
+        if ((target.tag == "player" && (player.GetCurrentHealth() < 100)) || isTutorial)
         {
 
             Destroy(gameObject);

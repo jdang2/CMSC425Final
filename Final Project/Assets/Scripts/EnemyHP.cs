@@ -16,7 +16,6 @@ public class EnemyHP : MonoBehaviour
 
     public Vector3 walkPoint;
 
-    public GameObject HealthPack;
     bool walkPointSet;
     public float walkPointRange;
 
