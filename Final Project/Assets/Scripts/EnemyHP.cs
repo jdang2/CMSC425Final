@@ -15,6 +15,8 @@ public class EnemyHP : MonoBehaviour
     public LayerMask groundMask, playerMask;
 
     public Vector3 walkPoint;
+
+    public GameObject HealthPack;
     bool walkPointSet;
     public float walkPointRange;
 
@@ -39,11 +41,14 @@ public class EnemyHP : MonoBehaviour
 
     public GameObject healthPack;
 
+    public ProgressTrack tracker;
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
-        healthPack = GameObject.Find("Healthpack");
+        
         agent = GetComponent<NavMeshAgent>();
+
+        tracker = GameObject.Find("Counter").GetComponent<ProgressTrack>();
     }
 
     private void Update()
@@ -131,8 +136,11 @@ public class EnemyHP : MonoBehaviour
         Destroy(gameObject);
         RNG = Random.Range(0, 10);
         if(RNG >= 8){
-            Instantiate(healthPack, transform.position, Quaternion.identity);
+            Vector3 temp = transform.position;
+            temp.y = 0.0141f;
+            Instantiate(healthPack, temp, Quaternion.identity);
         }
+        tracker.UpdateCount();
          
     }
 

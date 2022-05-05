@@ -8,6 +8,7 @@ TagManager:
   - item
   - Portal
   - Enemy
+  - Healthpack
   layers:
   - Default
   - TransparentFX

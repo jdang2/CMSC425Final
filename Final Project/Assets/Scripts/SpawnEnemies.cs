@@ -20,8 +20,8 @@ public class SpawnEnemies : MonoBehaviour
 
     IEnumerator Spawn(){
         while(enemyCount < maxEnemies){
-            x = Random.Range(0.05f, 47f);
-            z = Random.Range(-0.6f, 46f);
+            x = Random.Range(0.05f, 45f);
+            z = Random.Range(-0.6f, 45f);
 
             Instantiate(walkers, new Vector3(x, 0, z), Quaternion.identity);
             yield return new WaitForSeconds(0.1f);

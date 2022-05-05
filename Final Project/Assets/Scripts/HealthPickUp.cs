@@ -7,11 +7,11 @@ public class HealthPickUp : MonoBehaviour
 {
     public Slider playerHP;
 
+   
     void OnTriggerEnter(Collider target){
-        if(target.tag == "player" && playerHP.value < 100)
+        if(target.tag == "Healthpack" && playerHP.value < 100)
         {
             playerHP.value += 10;
-            Destroy(this.gameObject);
         }
     }
 }

@@ -403,6 +403,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   walkPoint: {x: 0, y: 0, z: 0}
+  HealthPack: {fileID: 0}
   walkPointRange: 2
   sightRange: 1.81
   playerInSightRange: 0
@@ -412,6 +413,7 @@ MonoBehaviour:
   playerInAttackRange: 0
   fireProjectile: {fileID: 0}
   projectile: {fileID: 0}
+  healthPack: {fileID: 3444941677498886134, guid: 979adc4c6802439469e7d1a5a00d91b9, type: 3}
 --- !u!195 &7669535540129364281
 NavMeshAgent:
   m_ObjectHideFlags: 0

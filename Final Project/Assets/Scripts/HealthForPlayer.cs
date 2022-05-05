@@ -20,6 +20,8 @@ public class HealthForPlayer : MonoBehaviour
 
     public Animator visionBar;
 
+    public Animator objective;
+
     public Animator cooldownMSG;
 
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class HealthForPlayer : MonoBehaviour
             wholeScreen.SetTrigger("start");
             visionBar.SetTrigger("dead");
             cooldownMSG.SetTrigger("end");
+            objective.SetTrigger("leave");
             deathSound.Play();
             FindObjectOfType<GameManager>().EndGame();
         }
@@ -53,9 +56,16 @@ public class HealthForPlayer : MonoBehaviour
 
     void OnCollisionEnter(Collision target)
     {
-        if(target.gameObject.tag == "Enemy"){
+        if(target.gameObject.tag == "Enemy" && target.gameObject.name != "bullet"){
             hitSound.Play();
             TakeDamage(10);
+        }else if(target.gameObject.tag == "Enemy" && target.gameObject.name == "bullet"){
+            hitSound.Play();
+            TakeDamage(5);
         }
+    }
+
+    public int GetCurrentHealth(){
+        return currentHealth;
     }
 }

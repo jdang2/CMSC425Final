@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
 
-    public Animator trigger;
+    public Animator screenTrigger;
 
     public Animator bartrigger;
 
     public Animator cdTrig;
+
+    public Animator objectiveTrig;
     public float transitionTime = 2f;
     void OnTriggerEnter(Collider target)
     {
@@ -23,9 +25,10 @@ public class NextLevel : MonoBehaviour
 
     IEnumerator Load(int index){
                  
-        trigger.SetTrigger("start");
+        screenTrigger.SetTrigger("start");
         bartrigger.SetTrigger("dead");
         cdTrig.SetTrigger("end");
+        objectiveTrig.SetTrigger("leave");
 
         yield return new WaitForSeconds(transitionTime);
 
