@@ -8,7 +8,6 @@ public class EnableVision : MonoBehaviour
     public GameObject window;
     public GameObject nightVision = null;
     public GameObject spotLight = null;
-    public Gun gun;
     private float timeSinceOpened = 0.2f;
     private float timeToWaitForKeyInput = 0.1f;
     private bool cooldownMSG = false;
@@ -73,15 +72,6 @@ public class EnableVision : MonoBehaviour
             window.SetActive(true);
             toggleNightVision(true);
         }
-        if(target.name == "Sniper")
-        {
-            gun.isSniper = true;
-            gun.ammo.maxValue = 1;
-            gun.ammo.value = 1;
-            gun.damage = 20f;
-            gun.shot.pitch = 0.3f;
-        }
-    
     }
 
     void triggerCooldown(){

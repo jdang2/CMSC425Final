@@ -222,8 +222,8 @@
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Signals\Styles.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Window\TimelineWindow_StateChange.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Utilities\TypeUtility.cs" />
-     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Attributes\ShortcutAttribute.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\inspectors\MarkerInspector.cs" />
+     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Attributes\ShortcutAttribute.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Audio\AudioPlayableAssetInspector.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Manipulators\Sequence\RectangleZoom.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.5.2\Editor\Window\Modes\TimeReferenceMode.cs" />
