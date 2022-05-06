@@ -5,9 +5,33 @@ using UnityEngine;
 public class RotateGoggles : MonoBehaviour
 {
 
-    // Update is called once per frame
+    private Vector3 pos1;
+    private Vector3 pos2;
+
+    public float yOffset;
+
+    public float moveSpeed = 0.05f;
+
+    private Vector3 moveTo;
+    
+    void Start()
+    {
+
+        pos1 = transform.position;
+        pos2 = transform.position + new Vector3(0, yOffset, 0); 
+    }
+
     void Update()
     {
         transform.Rotate(Vector3.up * 15 * Time.deltaTime, Space.World);
+        if(transform.position == pos1)
+        {
+            moveTo = pos2;
+        }
+        if(transform.position == pos2)
+        {
+            moveTo = pos1;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, moveTo, moveSpeed * Time.deltaTime);
     }
 }
