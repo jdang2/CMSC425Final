@@ -8,6 +8,7 @@ public class EnableVision : MonoBehaviour
     public GameObject window;
     public GameObject nightVision = null;
     public GameObject spotLight = null;
+    public Gun gun;
     private float timeSinceOpened = 0.2f;
     private float timeToWaitForKeyInput = 0.1f;
     private bool cooldownMSG = false;
@@ -60,18 +61,21 @@ public class EnableVision : MonoBehaviour
         }
     }
 
-    
-    void OnTriggerEnter(Collider target)
-    {
-        if(target.tag == "item")
-        {
-            visionOn = true;
-            goggles = true;
+    public void pickupGoggles(){
+        visionOn = true;
+        goggles = true;
 
-            activation.Play();
-            window.SetActive(true);
-            toggleNightVision(true);
-        }
+        activation.Play();
+        window.SetActive(true);
+        toggleNightVision(true);
+    }
+
+    public void pickupSniper(){
+        gun.isSniper = true;
+        gun.ammo.maxValue = 1;
+        gun.ammo.value = 1;
+        gun.damage = 20f;
+        gun.shot.pitch = 0.3f;
     }
 
     void triggerCooldown(){
@@ -99,9 +103,8 @@ public class EnableVision : MonoBehaviour
         while(true){
             yield return null;
             timeSinceOpened = timeSinceOpened + Time.deltaTime;
-            if(Input.GetKeyDown(KeyCode.Q) && (timeSinceOpened >= timeToWaitForKeyInput) && goggles){
+            if(Input.GetKeyDown(KeyCode.Q) && timeSinceOpened >= timeToWaitForKeyInput && goggles){
                 timeSinceOpened = 0f;
-
                 if(cooldown == false){
                     window.SetActive(!window.activeSelf);
                     toggleNightVision(window.activeSelf);
@@ -109,7 +112,7 @@ public class EnableVision : MonoBehaviour
                         visionOn = true;
                         off.Stop();
                         activation.Play();
-                        
+                            
                     }else{
                         activation.Stop();
                         float val = visionSlider.value - disablePenalty;
@@ -122,7 +125,6 @@ public class EnableVision : MonoBehaviour
                     }
                 }
             }
-            
         }
     }
 }

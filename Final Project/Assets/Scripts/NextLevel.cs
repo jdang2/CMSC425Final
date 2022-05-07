@@ -14,10 +14,16 @@ public class NextLevel : MonoBehaviour
 
     public Animator objectiveTrig;
     public float transitionTime = 2f;
+
+
     void OnTriggerEnter(Collider target)
     {
         if(target.tag == "player")
         {
+            GameObject cdMSG = GameObject.Find("Cooldown");
+            if(cdMSG != null){
+                cdMSG.SetActive(false);
+            }
             StartCoroutine(Load(SceneManager.GetActiveScene().buildIndex + 1));
         }
     }

@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : Interactable
 {
     // Start is called before the first frame update
 
     public GameObject enemy;
-    public Animator trigger;
+    public Animator visionMeter;
 
     public TextMeshProUGUI text;
 
 
-    void OnTriggerEnter(Collider target)
+    public override void trigger()
     {
-        Debug.Log(trigger.name);
-        if(target.tag == "player")
-        {
-            enemy.SetActive(true);
-            Destroy(this.gameObject);
-            text.text = "- Shoot the enemy";
-            trigger.SetTrigger("start");
+        
+        enemy.SetActive(true);
+        Destroy(this.gameObject);
+        text.text = "- Shoot the enemy";
+        visionMeter.SetTrigger("start");
             
-        }
     }
 }
 
