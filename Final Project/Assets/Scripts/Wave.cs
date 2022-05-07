@@ -6,6 +6,8 @@ public class Wave : MonoBehaviour
 {
 
     public HealthForPlayer player;
+
+    public AudioSource hitPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class Wave : MonoBehaviour
         if(other.name == "Player"){
             Debug.Log("Collision with player");
             player.TakeDamage(10);
+            hitPlayer.Play();
         }
     }
 }

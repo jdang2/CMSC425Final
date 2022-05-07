@@ -13,9 +13,16 @@ public class BossHP : MonoBehaviour
     private int RNG;
 
     public BossSpawnsEnemies attackOne;
-    // public attackTwo;
 
+    public GameObject attackTwo;
 
+    public GameObject deathAni;
+    
+    public bool canAttack = true;
+
+    public GameObject winScreen;
+
+    
 
     void Start(){
         attackOne = GameObject.Find("WalkerSpawner").GetComponent<BossSpawnsEnemies>();
@@ -23,23 +30,41 @@ public class BossHP : MonoBehaviour
         StartCoroutine(Attack());
     }
     void LateUpdate(){
-        transform.LookAt(transform.position + cam.forward);
+        if(bossHP.value > 0){
+            transform.LookAt(transform.position + cam.forward);
+        }else{
+            Die();
+        }
         
     }
 
+    void Die(){
+        canAttack = false;
+        GameObject.Find("Boss group").GetComponent<RotateGoggles>().enabled = false;
+        deathAni.SetActive(true);
+        StartCoroutine(death());
+    }
+
+    IEnumerator death(){
+        yield return new WaitForSeconds(5);
+        Destroy(boss);
+        winScreen.SetActive(true);
+    }
+
     IEnumerator Attack(){
-        while(true){
-            RNG = Random.Range(1, 10);
-            Debug.Log("Coroutine rolled a " +  RNG);
-            if(RNG > 7){
-                //attackOne.SpawnEnemies();
+        while(canAttack){
+            RNG = Random.Range(1, 11);
+            if(RNG <= 3){
+                attackOne.SpawnEnemies();
               
+            }else if(5 <= RNG && RNG <= 7){
+                int randomWave = Random.Range(0, attackTwo.transform.childCount);
+                WaveSpawner currentWave = attackTwo.transform.GetChild(randomWave).GetComponent<WaveSpawner>();
+                currentWave.SpawnWave();
             }else{
-                if(RNG > 3){
-                    //attackTwo.SpawnWave();
-                }
+                //do no attack 
             }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(4);
         }
     }
 }

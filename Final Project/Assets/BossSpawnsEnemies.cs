@@ -19,7 +19,7 @@ public class BossSpawnsEnemies : MonoBehaviour
     IEnumerator Spawn(){
         while(enemyCount < maxEnemies){
             x = Random.Range(-9f, 9f);
-            z = Random.Range(26.87f, 53.45f);
+            z = Random.Range(30f, 53.45f);
 
             Instantiate(walkers, new Vector3(x, 50f, z), Quaternion.identity);
             yield return new WaitForSeconds(0.8f);
