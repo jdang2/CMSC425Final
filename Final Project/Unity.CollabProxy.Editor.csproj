@@ -127,8 +127,8 @@
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Common\LocationAttribute.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Components\ProgressView.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Presenters\IStartPresenter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Components\ChangeListElements\HistoryChangeListElement.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Views\Adapters\IAdapterObserver.cs" />
+     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Components\ChangeListElements\HistoryChangeListElement.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Models\IStartModel.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Components\ChangeEntryGroup.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.7\Editor\Collaborate\Settings\CollabSetting.cs" />

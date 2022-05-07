@@ -13,6 +13,7 @@ public class BossHP : MonoBehaviour
     private int RNG;
 
     public BossSpawnsEnemies attackOne;
+    // public attackTwo;
 
 
 
@@ -28,13 +29,15 @@ public class BossHP : MonoBehaviour
 
     IEnumerator Attack(){
         while(true){
-            RNG = Random.Range(0, 10);
+            RNG = Random.Range(1, 10);
             Debug.Log("Coroutine rolled a " +  RNG);
-            if(RNG >= 6){
+            if(RNG > 7){
                 //attackOne.SpawnEnemies();
               
             }else{
-                
+                if(RNG > 3){
+                    //attackTwo.SpawnWave();
+                }
             }
             yield return new WaitForSeconds(3);
         }

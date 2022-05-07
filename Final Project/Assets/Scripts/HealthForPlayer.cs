@@ -40,7 +40,7 @@ public class HealthForPlayer : MonoBehaviour
 
     // Update is called once per frame
 
-    void TakeDamage(int damage){
+    public void TakeDamage(int damage){
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         if(healthBar.slider.value <= 0){
