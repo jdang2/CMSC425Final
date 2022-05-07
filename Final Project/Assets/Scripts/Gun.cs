@@ -107,18 +107,30 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)){
             Debug.Log(hit.transform.name);
             
-            EnemyHP enemy = hit.transform.GetComponent<EnemyHP>();
+            EnemyHP tempOne = hit.transform.GetComponent<EnemyHP>();
+            BossEyes tempTwo = hit.transform.GetComponent<BossEyes>();
+            WalkerBossScript tempThree = hit.transform.GetComponent<WalkerBossScript>();
+
             float dmgCalc = damage;
+
             if(!isSniper){
                 dmgCalc = dmgCalc/hit.distance;
             }
-            if(enemy != null){
-                enemy.TakeDamage(dmgCalc);
+
+            if(hit.transform.tag == "Enemy"){
+                if(tempOne != null){
+                    Debug.Log("Hit regular walker enemy");
+                    tempOne.TakeDamage(dmgCalc);
+                }else if(tempTwo != null){
+                    Debug.Log("Hit eye enemy");
+                    tempTwo.TakeDamage(damage);
+                }else if(tempThree != null){
+                    Debug.Log("Hit Boss walker enemy");
+                    tempThree.TakeDamage(damage);
+                }
                 enemyHitSound.pitch = 15/dmgCalc;
                 enemyHitSound.Play();
-            }
-
-            
+            }          
         }
     }
     

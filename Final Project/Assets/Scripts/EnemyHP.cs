@@ -41,6 +41,7 @@ public class EnemyHP : MonoBehaviour
     public GameObject healthPack;
 
     public ProgressTrack tracker;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;

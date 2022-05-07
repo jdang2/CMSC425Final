@@ -10,12 +10,12 @@ public class GunPickup : Interactable
 
     public override void trigger()
     {
+        DropPedestal parent = transform.parent.GetComponent<DropPedestal>();
         if(transform.parent != null){
-            DropPedestal parent = transform.parent.GetComponent<DropPedestal>();
             parent.Drop();
         }
         if(Boss != null){
-            Boss.SetActive(true);
+            parent.EnableBoss();
         }
         Destroy(gameObject);
         

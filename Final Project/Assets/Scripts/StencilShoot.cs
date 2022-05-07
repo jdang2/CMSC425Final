@@ -15,6 +15,14 @@ public class StencilShoot : MonoBehaviour
     private float nextTimeToFire = 0f;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
     
+    private Gun checkIfSniper;
+
+    public MeshFilter SniperMesh;
+    public Material[] SniperMats;
+    
+    void Start(){
+        checkIfSniper = GameObject.Find("Weapon").GetComponent<Gun>();
+    }
 
  
     // Update is called once per frame
@@ -25,6 +33,10 @@ public class StencilShoot : MonoBehaviour
             Shoot();
         }
 
+        if(checkIfSniper.isSniper){
+            transform.gameObject.GetComponent<MeshFilter>().sharedMesh = SniperMesh.sharedMesh;
+            transform.gameObject.GetComponent<Renderer>().materials = SniperMats;
+        }
 
     }
 

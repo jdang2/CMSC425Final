@@ -76,6 +76,7 @@ public class EnableVision : MonoBehaviour
         gun.ammo.value = 1;
         gun.damage = 20f;
         gun.shot.pitch = 0.3f;
+        gun.range = 500f;
     }
 
     void triggerCooldown(){

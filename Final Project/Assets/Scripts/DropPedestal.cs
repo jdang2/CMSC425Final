@@ -12,7 +12,11 @@ public class DropPedestal : MonoBehaviour
 
     public bool drop = false;
 
+    public GameObject Boss;
 
+    public ParticleSystem spawnParticles;
+
+    public AudioSource bossSpawnNoise;
     
     void Start()
     {
@@ -21,6 +25,7 @@ public class DropPedestal : MonoBehaviour
 
     public void Drop(){
         drop = true;
+    
     }
 
     void FixedUpdate()
@@ -30,6 +35,20 @@ public class DropPedestal : MonoBehaviour
            transform.position = Vector3.MoveTowards(transform.position, dropPos, moveSpeed * Time.deltaTime);
         }
     }
+
+    public void EnableBoss(){
+
+        StartCoroutine(BossAwake());
+    }
+
+    IEnumerator BossAwake(){
+        spawnParticles.Play();
+        bossSpawnNoise.Play();
+        yield return new WaitForSeconds(7);
+        Boss.SetActive(true);
+        bossSpawnNoise.Stop();
+    }
+
 
     
 }
