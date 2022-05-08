@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     public bool trigger;
 
     void Start(){
-        parent = GameObject.Find("WaveSpawners");
+        parent = transform.parent.gameObject;
         if(transform.localPosition.z > 0){
             angleType = true;
         }else{
@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public void SpawnWave(){
-        child = Instantiate(wave, transform.position, Quaternion.identity, parent.transform).transform;
+        child = Instantiate(wave, transform.position, transform.localRotation, parent.transform).transform;
         child.gameObject.SetActive(true);
     }
 
@@ -32,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
             SpawnWave();
         }
         if(child != null){
-            child.Translate(waveSpeed * (parent.transform.position - transform.position) * Time.deltaTime);
+            child.Translate(waveSpeed * (-1 * transform.localPosition) * Time.deltaTime, Space.World);
             if(angleType && child.localPosition.z <= (-1 * transform.localPosition.z)){
                 Debug.Log(child.localPosition.z);
                 Debug.Log(-1 * transform.localPosition.z);

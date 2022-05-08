@@ -9,7 +9,9 @@ public class Gun : MonoBehaviour
     public float range = 100f;
     public float interactRange = 1f;
     public AudioSource enemyHitSound = null;
+    public AudioSource pickupSound = null;
     public AudioSource shot;
+    
     public MeshFilter SniperMesh;
     public Material[] SniperMats;
 
@@ -75,12 +77,15 @@ public class Gun : MonoBehaviour
             if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, interactRange)){
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-                if(interactable != null && hit.distance <= 0.75f && timeSinceOpened >= timeToWaitForKeyInput){
+                if(interactable != null && hit.distance <= interactRange && timeSinceOpened >= timeToWaitForKeyInput){
                     timeSinceOpened = 0;
                     Debug.Log(hit.distance);
                     Debug.Log("huh");
                     if(interactable is GunPickup){
                         visionEnabler.pickupSniper();
+                        if(pickupSound != null){
+                            pickupSound.Play();
+                        }
                         transform.gameObject.GetComponent<MeshFilter>().sharedMesh = SniperMesh.sharedMesh;
                         transform.gameObject.GetComponent<Renderer>().materials = SniperMats;
                         

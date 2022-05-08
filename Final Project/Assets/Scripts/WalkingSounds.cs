@@ -7,12 +7,11 @@ public class WalkingSounds : MonoBehaviour
     CharacterController control;
 
 
-    private AudioSource walk;
+    public AudioSource walk = null;
     // Start is called before the first frame update
     void Start()
     {
         control = GetComponent<CharacterController>();
-        walk = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,8 +19,9 @@ public class WalkingSounds : MonoBehaviour
     {
         if(control.isGrounded && walk.isPlaying == false && FindObjectOfType<GameManager>().gameHasEnded == false){
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)){
-              
-                walk.Play();
+                if(walk != null){
+                    walk.Play();
+                }
             }
         }
     }

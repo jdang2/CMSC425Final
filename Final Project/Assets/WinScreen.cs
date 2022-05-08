@@ -19,10 +19,10 @@ public class WinScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         gun.GetComponent<Gun>().enabled = false;
-        AudioListener.pause = true;
     }
 
     public void PlayAgain(){
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
     public void Quit(){

@@ -24,33 +24,25 @@ public class HealthForPlayer : MonoBehaviour
 
     public Animator cooldownMSG;
 
-    // Start is called before the first frame update
     void Start()
     {
         saveHP = currentHealth;
         Debug.Log(currentHealth);
         healthBar.SetHealth(currentHealth);
-      
-        
     }
-
-    void Update(){
-        
-    }
-
-    // Update is called once per frame
 
     public void TakeDamage(int damage){
         currentHealth -= damage;
+        
         healthBar.SetHealth(currentHealth);
         if(healthBar.slider.value <= 0){
-            currentHealth = saveHP;
             wholeScreen.SetTrigger("start");
             visionBar.SetTrigger("dead");
             cooldownMSG.SetTrigger("end");
             objective.SetTrigger("leave");
             deathSound.Play();
             FindObjectOfType<GameManager>().EndGame();
+            currentHealth = saveHP;
         }
     }
 

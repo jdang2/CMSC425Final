@@ -15,6 +15,7 @@ public class BossHP : MonoBehaviour
     public BossSpawnsEnemies attackOne;
 
     public GameObject attackTwo;
+    private int waveSpawners;
 
     public GameObject deathAni;
     
@@ -26,7 +27,7 @@ public class BossHP : MonoBehaviour
 
     void Start(){
         attackOne = GameObject.Find("WalkerSpawner").GetComponent<BossSpawnsEnemies>();
-     
+        waveSpawners = attackTwo.transform.childCount;
         StartCoroutine(Attack());
     }
     void LateUpdate(){
@@ -42,6 +43,11 @@ public class BossHP : MonoBehaviour
         canAttack = false;
         GameObject.Find("Boss group").GetComponent<RotateGoggles>().enabled = false;
         deathAni.SetActive(true);
+        GameObject[] walkers;
+        walkers = GameObject.FindGameObjectsWithTag("Boss Spawns");
+        for(int i = 0; i < walkers.Length; i++){
+            Destroy(walkers[i].gameObject);
+        }
         StartCoroutine(death());
     }
 
@@ -58,11 +64,15 @@ public class BossHP : MonoBehaviour
                 attackOne.SpawnEnemies();
               
             }else if(5 <= RNG && RNG <= 7){
-                int randomWave = Random.Range(0, attackTwo.transform.childCount);
-                WaveSpawner currentWave = attackTwo.transform.GetChild(randomWave).GetComponent<WaveSpawner>();
-                currentWave.SpawnWave();
-            }else{
-                //do no attack 
+                Transform nearestWave = attackTwo.transform.GetChild(0);
+                for (int value = 1; value < waveSpawners; value ++) {
+                    Transform temp = attackTwo.transform.GetChild(value);
+                    if(Vector3.Distance(transform.position, temp.position) < Vector3.Distance(transform.position, nearestWave.position)){
+                        nearestWave = temp;
+                    }
+                }
+
+                nearestWave.gameObject.GetComponent<WaveSpawner>().SpawnWave();
             }
             yield return new WaitForSeconds(4);
         }

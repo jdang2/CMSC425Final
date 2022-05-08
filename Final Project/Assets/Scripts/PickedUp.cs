@@ -13,13 +13,11 @@ public class PickedUp : MonoBehaviour
 
     void Start(){
         player = GameObject.Find("Player").GetComponent<HealthForPlayer>();
-       
     }
     void OnTriggerEnter(Collider target)
     {
         if ((target.tag == "player" && (player.GetCurrentHealth() < 100)) || isTutorial)
         {
-
             Destroy(gameObject);
         }
     }

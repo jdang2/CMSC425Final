@@ -6,6 +6,8 @@ public class Wave : MonoBehaviour
 {
 
     public HealthForPlayer player;
+    public int damage = 10;
+    public bool isAttack = true;
 
     public AudioSource hitPlayer;
     // Start is called before the first frame update
@@ -18,8 +20,10 @@ public class Wave : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.name == "Player"){
             Debug.Log("Collision with player");
-            player.TakeDamage(10);
-            hitPlayer.Play();
+            player.TakeDamage(damage);
+            if(isAttack && hitPlayer != null){
+                hitPlayer.Play();
+            }
         }
     }
 }
