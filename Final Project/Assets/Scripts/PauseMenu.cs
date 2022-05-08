@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class PauseMenu : MonoBehaviour
 
     public Animator barTrigger;
     public GameObject pauseMenu;
+
+    public HealthForPlayer playerHP;
     // Update is called once per frame
+
+    void Start(){
+        playerHP = GameObject.Find("Player").GetComponent<HealthForPlayer>();
+    }
     void Update()
     {
         
@@ -51,6 +58,7 @@ public class PauseMenu : MonoBehaviour
     }   
 
     public void Menu(){
+        playerHP.setCurrentHealth(100);
         Time.timeScale = 1f;
         StartCoroutine(Load(0));
     }

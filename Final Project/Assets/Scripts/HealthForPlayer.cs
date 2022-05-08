@@ -5,7 +5,6 @@ using UnityEngine;
 public class HealthForPlayer : MonoBehaviour
 {
 
-    public int maxHealth = 100;
 
     public static int currentHealth = 100;
 
@@ -29,6 +28,7 @@ public class HealthForPlayer : MonoBehaviour
         saveHP = currentHealth;
         Debug.Log(currentHealth);
         healthBar.SetHealth(currentHealth);
+        healthBar.SetMaxHealth(100);
     }
 
     public void TakeDamage(int damage){
@@ -59,5 +59,17 @@ public class HealthForPlayer : MonoBehaviour
 
     public int GetCurrentHealth(){
         return currentHealth;
+    }
+
+    public void setCurrentHealth(int amount){
+        currentHealth = amount;
+    }
+
+    public void heal(int amount){
+        currentHealth += amount;
+        if(currentHealth > 100){
+            currentHealth = 100;
+        }
+        healthBar.SetHealth(currentHealth);
     }
 }

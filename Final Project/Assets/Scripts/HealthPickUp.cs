@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class HealthPickUp : MonoBehaviour
 {
-    public Slider playerHP;
     public AudioSource bandageTear;
     public bool isTutorial = false;
 
+    public HealthForPlayer playerHP;
    
+    void Start(){
+        playerHP = GameObject.Find("Player").GetComponent<HealthForPlayer>();
+    }
     void OnTriggerEnter(Collider target){
-        if(target.tag == "Healthpack" && (playerHP.value < 100 || isTutorial))
+        if(target.tag == "Healthpack" && (playerHP.GetCurrentHealth() < 100 || isTutorial))
         {
             bandageTear.Play();
 
-            playerHP.value += 20;
+            playerHP.heal(20);
         }
     }
 }

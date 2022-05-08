@@ -162,7 +162,7 @@ public class EnemyHP : MonoBehaviour
             transform.position = temp;
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 25f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 15f, ForceMode.Impulse);
+            //rb.AddForce(transform.up * 10f, ForceMode.Impulse);
             if(fireProjectile != null){
                 fireProjectile.Play();
             }

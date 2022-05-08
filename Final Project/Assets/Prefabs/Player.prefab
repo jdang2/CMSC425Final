@@ -1481,7 +1481,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56781aa401cff1141b422fd215e482dd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1636,7 +1636,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ef707565e6072f4fa3fc83eb018e56e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.736
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1732,7 +1732,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 780e539c5b3d6374d8ff8e13a1c0061d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1842,7 +1842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3414137f1f96a4a82cd8902efb5d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   healthBar: {fileID: 0}
   deathSound: {fileID: 1303495428}
   hitSound: {fileID: 1269482366}
@@ -1862,7 +1861,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9cafbcb92395af643ad5443fe202d24b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.803
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2070,9 +2069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d0d10bd1328d84fb2eaab4bc2459ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHP: {fileID: 0}
   bandageTear: {fileID: -4039288881415793724}
   isTutorial: 0
+  playerHP: {fileID: 0}
 --- !u!82 &-4039288881415793724
 AudioSource:
   m_ObjectHideFlags: 0
