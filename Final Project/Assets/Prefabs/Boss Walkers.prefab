@@ -1336,7 +1336,7 @@ GameObject:
   - component: {fileID: 2914138967904091022}
   m_Layer: 0
   m_Name: Boss Walkers
-  m_TagString: Boss Spawns
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

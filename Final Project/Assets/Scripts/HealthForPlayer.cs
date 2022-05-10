@@ -48,7 +48,7 @@ public class HealthForPlayer : MonoBehaviour
 
     void OnCollisionEnter(Collision target)
     {
-        if(target.gameObject.tag == "Enemy" && target.gameObject.name != "bullet"){
+        if((target.gameObject.tag == "Enemy") && target.gameObject.name != "bullet"){
             hitSound.Play();
             TakeDamage(10);
         }else if(target.gameObject.tag == "Enemy" && target.gameObject.name == "bullet"){

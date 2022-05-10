@@ -63,7 +63,7 @@ public class BossHP : MonoBehaviour
             if(RNG <= 3){
                 attackOne.SpawnEnemies();
               
-            }else if(5 <= RNG && RNG <= 7){
+            }else if(RNG >= 4){
                 Transform nearestWave = attackTwo.transform.GetChild(0);
                 for (int value = 1; value < waveSpawners; value ++) {
                     Transform temp = attackTwo.transform.GetChild(value);
